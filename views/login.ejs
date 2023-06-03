@@ -1,0 +1,61 @@
+<%- include('head.ejs') %>
+
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="card m-2">
+                    <div class="card-top p-4">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <img src="./images/nasa_logo.jpg" class="img-fluid" alt="not a space agency">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-auto pt-4">
+                                <h4>Welcome to NASA - Not A Space Agency</h4>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-body">
+                        <div style="text-align: center;" class="mb-4">
+                            <h4>Please Login</h4>
+                            <h6 class="<% if (typeof style !== 'undefined') { %><%= style %><% } %>"><% if (typeof title !== 'undefined') { %><%= title %><% } %></h6>
+                        </div>
+
+                        <form id="login" action="checkUser" method="post">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                                       value="<% if (typeof email !== 'undefined') { %><%= email %><% } %>" required>
+                                <label for="email">Email address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" id="password" name="password" placeholder="Password"
+                                       class="form-control <% if (typeof error !== 'undefined') { %><%= error %><% } %>" required>
+                                <label for="password">Password</label>
+                                <div class="invalid-feedback">wrong password</div>
+                            </div>
+                            <div class="d-grid mb-3">
+                                <button class="btn btn-primary" type="submit">LOGIN</button>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    <p>need to <a href="./register">register</a>?</p>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

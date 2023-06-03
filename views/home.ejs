@@ -1,0 +1,86 @@
+<%- include('head.ejs') %>
+
+<body class="bg-light">
+
+    <nav class="navbar sticky-top navbar-expand navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <img src="./images/nasa.png" alt="nasa" width="70" height="20">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li>
+                        <h5 class="m-2 text-light">Hello <% if (typeof title !== 'undefined') { %><%= title %><% } %></h5>
+                    </li>
+                </ul>
+                <button class="btn btn-light d-flex" id='logoutButton' type="button">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="errorToast" class="toast align-items-center text-bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <h6 class="toast-body" id="errorMessage">
+                </h6>
+                <button type="button" class="btn-close me-2 m-auto text-bg-light" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="card m-2">
+                    <div class="card-top p-4">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <img src="./images/nasa_logo.jpg" class="img-fluid" alt="not a space agency">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-auto pt-4">
+                                <h4>Welcome to NASA - Not A Space Agency</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <form id="dateInput">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <label for="dateSelect" class="my-2">Please select a date: </label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="date" class="form-control" id="dateSelect">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" id="getDate" class="btn btn-outline-secondary">Go</button>
+                                </div>
+                                <input type="hidden" id="userName" value="<% if (typeof user !== 'undefined') { %><%= user %><% } %>">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div id="scroller"></div>
+                <img src='./images/buffering.gif' class="d-none" id="bufferImg" alt="buffer">
+                <button type="button" id="loadMore" class="btn btn-outline-secondary my-3 d-none">Load more</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="/javascripts/home.js"></script>
+</body>
+</html>
